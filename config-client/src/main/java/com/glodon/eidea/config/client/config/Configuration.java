@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RefreshScope
 public class Configuration {
-    @Value("${app.message}")
+    @Value("${app.message:默认值}")
     private String message;
 
-    @Value("${user.username}")
+    @Value("${user.username:默认值}")
     private String username;
 
-    @Value("${user.userage}")
+    @Value("${user.userage:默认值}")
     private String userage;
 
     @RequestMapping("/test")

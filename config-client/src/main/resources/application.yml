@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: config-client
+  profiles:
+    #启动的配置项
+    active: service2
+  cloud:
+    config:
+      name: helloword
+      #config.profile会根据生效的active设置对应的值
+      profile: ${config.profile}
+      uri: http://localhost:8888
+  config:
+    name: application
+#将不同的配置组以---分割，并通过spring.profiles定义每组的名字，方便后续引用
+
+---
+spring:
+  profiles: service1
+config:
+  profile: test
+
+---
+spring:
+  profiles: service2
+config:
+  profile: dev
